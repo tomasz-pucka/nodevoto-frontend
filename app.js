@@ -51,7 +51,7 @@ class App {
   }
 
   async _ListAll() {
-    let response = await wrapOp(this.gifClient.GetAll.bind(this.gifClient))();
+    let response = await wrapOp(this.gifClient.CollectAll.bind(this.gifClient))();
     return response.list;
   }
 
