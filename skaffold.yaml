@@ -1,0 +1,20 @@
+apiVersion: skaffold/v4beta11
+kind: Config
+metadata:
+  name: web-deployment
+build:
+  local:
+    push: false
+    useDockerCLI: true
+  artifacts:
+    - image: nodevoto-web
+      sync:
+        infer:
+          - '**/*.jsx'
+          - '**/*.css'
+          - '**/*.js'
+      docker:
+        dockerfile: Dockerfile
+manifests:
+  rawYaml:
+    - k8s/deployment.yaml

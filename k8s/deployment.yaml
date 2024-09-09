@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-deployment
+  namespace: nodevoto
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-pod
+  template:
+    metadata:
+      labels:
+        app: web-pod
+      annotations:
+        linkerd.io/inject: enabled
+    spec:
+      containers:
+        - image: nodevoto-web:3.0.0
+          imagePullPolicy: Never
+          name: web-container
+          ports:
+            - containerPort: 80
+              name: web-port
+          env:
+            - name: WEB_PORT
+              value: "80"
+            - name: GIFSVC_HOST
+              value: gif-service.nodevoto:8080
+            - name: VOTINGSVC_HOST
+              value: voting-service.nodevoto:8080
+            - name: SVC_NAME
+              value: web
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-service
+  namespace: nodevoto
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: web-port
+  selector:
+    app: web-pod
