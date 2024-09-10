@@ -15,8 +15,8 @@ const WEBPACK_DEV_SERVER_PORT = process.env.WEBPACK_DEV_SERVER !== undefined ? p
 
 if (WEB_PORT && GIFSVC_HOST && VOTINGSVC_HOST) {
   Promise.resolve().then(async() => {
-    let gifClient = createGrpcClient('/proto/Gif.proto', 'GifService', GIFSVC_HOST);
-    let votingClient = createGrpcClient('/proto/Voting.proto', 'VotingService', VOTINGSVC_HOST);
+    let gifClient = createGrpcClient('/nodevoto-gif/proto/Gif.proto', 'GifService', GIFSVC_HOST);
+    let votingClient = createGrpcClient('/nodevoto-voting/proto/Voting.proto', 'VotingService', VOTINGSVC_HOST);
 
     let web = await app.create(WEB_PORT,
       WEBPACK_DEV_SERVER_PORT,
