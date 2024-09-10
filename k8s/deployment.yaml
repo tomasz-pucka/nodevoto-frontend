@@ -29,8 +29,6 @@ spec:
               value: gif-service.nodevoto:8080
             - name: VOTINGSVC_HOST
               value: voting-service.nodevoto:8080
-            - name: SVC_NAME
-              value: web
 ---
 apiVersion: v1
 kind: Service
