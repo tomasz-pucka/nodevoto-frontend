@@ -1,6 +1,8 @@
 [submodule "nodevoto-gif"]
 	path = nodevoto-gif
 	url = https://github.com/tomasz-pucka/nodevoto-gif.git
+	fetchRecurseSubmodules = true
 [submodule "nodevoto-voting"]
 	path = nodevoto-voting
 	url = https://github.com/tomasz-pucka/nodevoto-voting.git
+	fetchRecurseSubmodules = true
