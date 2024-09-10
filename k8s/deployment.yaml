@@ -16,7 +16,7 @@ spec:
         linkerd.io/inject: enabled
     spec:
       containers:
-        - image: nodevoto-web:3.0.0
+        - image: nodevoto-frontend:1.0.0
           imagePullPolicy: Never
           name: web-container
           ports:

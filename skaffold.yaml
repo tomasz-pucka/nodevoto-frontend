@@ -7,12 +7,13 @@ build:
     push: false
     useDockerCLI: true
   artifacts:
-    - image: nodevoto-web
+    - image: nodevoto-frontend
       sync:
         infer:
           - '**/*.jsx'
           - '**/*.css'
           - '**/*.js'
+          - '**/*.proto'
       docker:
         dockerfile: Dockerfile
 manifests:
